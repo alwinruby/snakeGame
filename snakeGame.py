@@ -44,6 +44,9 @@ def gameOver():
     GOrect.midtop = (360, 15)
     playSurface.blit(GOsurf, GOrect)
     pygame.display.flip()
+    time.sleep(4)
+    pygame.quit()#pygame exit
+    sys.exit()#console exit
     
-gameOver()
-time.sleep(10)
+
+
