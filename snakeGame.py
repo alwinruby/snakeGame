@@ -28,4 +28,6 @@ fpsController = pygame.time.Clock()
 
 #Important variables
 snakePos = [100, 50]
-snakeBody = [[100, 50][90, 50][80, 50]]
+snakeBody = [[100, 50], [90, 50], [80, 50]]
+
+foodPos = [random.randrange(1, 72)*10, random.randrange(1, 46)*10]
