@@ -22,3 +22,10 @@ blue = pygame.Color(0, 0, 255)#
 black = pygame.Color(0, 0, 0)# score
 white = pygame.Color(255, 255, 255)# backgroynd
 brown = pygame.Color(165, 42, 42)# food
+
+# FPS controller
+fpsController = pygame.time.Clock()
+
+#Important variables
+snakePos = [100, 50]
+snakeBody = [[100, 50][90, 50][80, 50]]
