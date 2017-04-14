@@ -75,3 +75,12 @@ while True:
         direction = 'UP'
     if changeto == 'DOWN' and not direction == 'UP':
         direction = 'DOWN'
+
+    if direction == 'RIGHT':
+        snakePos[0] += 10
+    if direction == 'LEFT':
+        snakePos[0] -= 10
+    if direction == 'UP':
+        snakePos[1] -= 10
+    if direction == 'DOWN':
+        snakePos[1] += 10
