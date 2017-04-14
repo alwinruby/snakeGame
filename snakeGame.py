@@ -11,3 +11,7 @@ if check_errors[1] > 0:
 else:
     print("(+) PyGame succesfully initialised!")
 
+# Play surface
+playSurface = pygame.display.set_mode((720, 460))
+pygame.display.set_caption('Snake game!')
+time.sleep(5)
