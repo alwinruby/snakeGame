@@ -55,13 +55,13 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT or event.key == ord('d')
+            if event.key == pygame.K_RIGHT or event.key == ord('d'):
                 changeto = 'RIGHT'
-            if event.key == pygame.K_LEFT or event.key == ord('a')
+            if event.key == pygame.K_LEFT or event.key == ord('a'):
                 changeto = 'LEFT'
-            if event.key == pygame.K_UP or event.key == ord('w')
+            if event.key == pygame.K_UP or event.key == ord('w'):
                 changeto = 'UP'
-            if event.key == pygame.K_DOWN or event.key == ord('s')
+            if event.key == pygame.K_DOWN or event.key == ord('s'):
                 changeto = 'DOWN'
             if event.key == pygame.K_ESCAPE:
                 pygame.event.post(pygame.event.Event(QUIT))
@@ -95,3 +95,11 @@ while True:
     if foodSpawn == False:
         foodPos = [random.randrange(1, 72)*10, random.randrange(1, 46)*10]
     foodSpawn = True
+    
+    playSurface.fill(white)
+    for pos in snakeBody:
+        pygame.draw.rect(playSurface, green, )
+        pygame.Rect(pos[0], pos[1], 10, 10)
+    
+    pygame.display.flip()
+    fpsController.tick(25)
