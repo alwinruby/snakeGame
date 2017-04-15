@@ -18,7 +18,7 @@ pygame.display.set_caption('Snake game!')
 # Colours
 red = pygame.Color(255, 0, 0)# game over
 green = pygame.Color(0, 255, 0)# snake
-#blue = pygame.Color(0, 0, 255)#
+blue = pygame.Color(0, 0, 255)# score
 black = pygame.Color(0, 0, 0)# score
 white = pygame.Color(255, 255, 255)# backgroynd
 brown = pygame.Color(165, 42, 42)# food
@@ -36,6 +36,8 @@ foodSpawn = True
 direction = 'RIGHT'
 changeto = direction
 
+score = 0
+
 # Game over function
 def gameOver():
     myFont = pygame.font.SysFont('monaco', 72)
@@ -44,9 +46,21 @@ def gameOver():
     GOrect.midtop = (360, 15)
     playSurface.blit(GOsurf, GOrect)
     pygame.display.flip()
+    showScore(0)
     time.sleep(4)
     pygame.quit()#pygame exit
     sys.exit()#console exit
+ 
+def showScore(choice = 1):
+    sFont = pygame.font.SysFont('monaco', 24)
+    Ssurf = sFont.render('Score : {0}'.format(score), True, blue)
+    Srect = Ssurf.get_rect()
+    if choice == 1:
+        Srect.midtop =(80, 10)
+    else:
+        Srect.midtop =(360, 120)
+    playSurface.blit(Ssurf, Srect)
+    pygame.display.flip()
     
 # Logic for the game.
 while True:
@@ -88,6 +102,7 @@ while True:
     # Snake Body mechanism
     snakeBody.insert(0, list(snakePos))
     if snakePos[0] == foodPos[0] and snakePos[1] == foodPos[1]:
+        score += 1 
         foodSpawn = False
     else:
         snakeBody.pop()
@@ -114,8 +129,10 @@ while True:
         gameOver()
         
     for block in snakeBody[1:]:
-        if snakePos[0] == block[0] and snakePos[1] == block[1]
+        if snakePos[0] == block[0] and snakePos[1] == block[1]:
             gameOver()
-            
+    
+         
     pygame.display.flip()
-    fpsController.tick(20)
+    showScore() 
+    fpsController.tick(10)
